@@ -10,7 +10,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            List{
+                ForEach(courses){ course in
+                    
+                    BasicRow(course: course)
+                }
+            }
+        .navigationBarTitle("Cursos de iOS")
+        }
+    }
+}
+
+struct BasicRow: View{
+    
+    var course: Course
+    
+    var body: some View{
+        HStack{
+            Image(course.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 80, height: 80)
+                .cornerRadius(10)
+            Text(course.name)
+        }
     }
 }
 

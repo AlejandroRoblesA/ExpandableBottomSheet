@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct CourseDetailView: View {
+    
+    var course: Course
+    
     var body: some View {
         
         VStack{
@@ -17,9 +20,12 @@ struct CourseDetailView: View {
             
             TitleBar(titleText: "Detalles del curso")
             
-            HeaderView()
-            DescriptionView()
+            HeaderView(course: courses[4])
+            DescriptionView(icon:"dollarsign.circle.fill" , content: "\(course.price)")
+            DescriptionView(content: course.description)
         }
+        .background(Color.white)
+    .cornerRadius(15, antialiased: true)
     }
 }
 
@@ -40,23 +46,55 @@ struct TitleBar: View {
         Text(titleText)
             .font(.headline)
             .foregroundColor(.primary)
+            .padding()
     }
 }
 
 struct HeaderView: View{
+    
+    var course: Course
+    
     var body: some View{
-        Text("")
+        Image(course.image)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 200 ,height: 200)
+            .clipped()
+            .overlay(
+            HStack{
+                VStack(alignment: .leading){
+                    Spacer()
+                    Text(course.ratting)
+                        .font(.system(.title))
+                        .foregroundColor(.yellow)
+                        .background(Color.blue)
+                        .cornerRadius(5)
+                }
+                }.offset(x: 0, y: 40)
+        )
     }
 }
 
 struct DescriptionView: View {
+    
+    var icon: String?
+    var content: String
+    
     var body: some View{
-        Text("")
+        HStack{
+            if icon != nil{
+                Image(systemName: icon!)
+                    .padding(.trailing, 10)
+            }
+            Text(content)
+                .font(.system(.body, design: .rounded))
+            Spacer()
+        }.padding(.horizontal)
     }
 }
 
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetailView()
+        CourseDetailView(course: courses[0])
     }
 }

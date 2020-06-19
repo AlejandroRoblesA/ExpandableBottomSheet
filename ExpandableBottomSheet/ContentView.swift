@@ -29,6 +29,8 @@ struct ContentView: View {
                 }
             .navigationBarTitle("Cursos de iOS")
             }
+            .offset(y: self.showCourseDetail ? -150: 0)
+            .animation(.easeIn(duration: 0.25))
             if showCourseDetail{
                 BlanketView(color: .gray)
                     .opacity(0.5)

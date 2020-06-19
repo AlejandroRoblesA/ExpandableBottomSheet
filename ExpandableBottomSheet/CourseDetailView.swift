@@ -25,12 +25,14 @@ struct CourseDetailView: View {
                         HeaderView(course: self.course)
                         DescriptionView(icon:"dollarsign.circle.fill" , content: "\(self.course.price)")
                         DescriptionView(content: self.course.description)
-                    }
+                }
+                .animation(nil)
                     
                 }
                 .background(Color.white)
             .cornerRadius(15, antialiased: true)
             .offset(y: geometry.size.height*0.4)
+            .animation(.interpolatingSpring(stiffness: 100, damping: 20, initialVelocity: 10))
             .edgesIgnoringSafeArea(.all)
             }
         }

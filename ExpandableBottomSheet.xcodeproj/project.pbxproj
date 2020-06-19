@@ -15,6 +15,7 @@
 		A85D8D4A249AFF7B008C5F36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85D8D48249AFF7B008C5F36 /* LaunchScreen.storyboard */; };
 		A85D8D52249AFFF3008C5F36 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D8D51249AFFF3008C5F36 /* Course.swift */; };
 		A85D8D54249B0F65008C5F36 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D8D53249B0F65008C5F36 /* CourseDetailView.swift */; };
+		A8F5DB04249C681200805A60 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5DB03249C681200805A60 /* DragState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A85D8D4B249AFF7B008C5F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85D8D51249AFFF3008C5F36 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		A85D8D53249B0F65008C5F36 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		A8F5DB03249C681200805A60 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				A85D8D51249AFFF3008C5F36 /* Course.swift */,
 				A85D8D41249AFF7A008C5F36 /* ContentView.swift */,
 				A85D8D53249B0F65008C5F36 /* CourseDetailView.swift */,
+				A8F5DB03249C681200805A60 /* DragState.swift */,
 				A85D8D43249AFF7B008C5F36 /* Assets.xcassets */,
 				A85D8D48249AFF7B008C5F36 /* LaunchScreen.storyboard */,
 				A85D8D4B249AFF7B008C5F36 /* Info.plist */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A85D8D54249B0F65008C5F36 /* CourseDetailView.swift in Sources */,
+				A8F5DB04249C681200805A60 /* DragState.swift in Sources */,
 				A85D8D52249AFFF3008C5F36 /* Course.swift in Sources */,
 				A85D8D3E249AFF7A008C5F36 /* AppDelegate.swift in Sources */,
 				A85D8D40249AFF7A008C5F36 /* SceneDelegate.swift in Sources */,

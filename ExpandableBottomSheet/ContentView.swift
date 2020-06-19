@@ -38,7 +38,7 @@ struct ContentView: View {
                         self.showCourseDetail = false
                 }
                 self.selectedCourse.map {
-                    CourseDetailView(course: $0)
+                    CourseDetailView(isShown: $showCourseDetail, course: $0)
                         .transition(.move(edge: .bottom))
                 }
             }

@@ -9,15 +9,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showCourseDetail = false
+    @State private var selectedCourse: Course?
+    
     var body: some View {
-        NavigationView{
-            List{
-                ForEach(courses){ course in
-                    
-                    BasicRow(course: course)
+        
+        ZStack{
+            NavigationView{
+                List{
+                    ForEach(courses){ course in
+                        
+                        BasicRow(course: course)
+                            .onTapGesture {
+                                self.showCourseDetail = true
+                                self.selectedCourse = course
+                            }
+                    }
+                }
+            .navigationBarTitle("Cursos de iOS")
+            }
+            if showCourseDetail{
+                BlanketView(color: .gray)
+                    .opacity(0.5)
+                    .onTapGesture {
+                        self.showCourseDetail = false
+                }
+                self.selectedCourse.map {
+                    CourseDetailView(course: $0)
+                        .transition(.move(edge: .bottom))
                 }
             }
-        .navigationBarTitle("Cursos de iOS")
         }
     }
 }
@@ -35,6 +57,21 @@ struct BasicRow: View{
                 .cornerRadius(10)
             Text(course.name)
         }
+    }
+}
+
+struct BlanketView: View{
+    
+    var color: Color
+    
+    var body: some View{
+        
+        VStack{
+            Spacer()
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+        .background(color)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -14,19 +14,26 @@ struct CourseDetailView: View {
     
     var body: some View {
         
-        VStack{
-            
-            HandleBar()
-            
-            TitleBar(titleText: "Detalles del curso")
-            
-            HeaderView(course: courses[4])
-            DescriptionView(icon:"dollarsign.circle.fill" , content: "\(course.price)")
-            DescriptionView(content: course.description)
+        GeometryReader{ geometry in
+            VStack{
+                    Spacer()
+                    HandleBar()
+                    
+                    TitleBar(titleText: "Detalles del curso")
+                    
+                    ScrollView(.vertical){
+                        HeaderView(course: self.course)
+                        DescriptionView(icon:"dollarsign.circle.fill" , content: "\(self.course.price)")
+                        DescriptionView(content: self.course.description)
+                    }
+                    
+                }
+                .background(Color.white)
+            .cornerRadius(15, antialiased: true)
+            .offset(y: geometry.size.height*0.4)
+            .edgesIgnoringSafeArea(.all)
+            }
         }
-        .background(Color.white)
-    .cornerRadius(15, antialiased: true)
-    }
 }
 
 struct HandleBar: View{
@@ -96,5 +103,7 @@ struct DescriptionView: View {
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CourseDetailView(course: courses[0])
+            .background(Color.gray.opacity(0.5))
+            .edgesIgnoringSafeArea(.all)
     }
 }
